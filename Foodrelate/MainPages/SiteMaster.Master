@@ -1,0 +1,56 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="SiteMaster.master.vb" Inherits="Foodrelate.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Food Recipe Database</title>
+    <link href="~/styles/style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <div id="page_wrapper">
+
+        <div id="page_header">
+
+            <h1>Dinner Assistant</h1>
+            <h2>What can we make for dinner?</h2>
+
+        </div>
+
+    <div id="menu_bar">
+        <ul>
+        <li><a href="../default.aspx">Home</a></li>
+        <li><a href="../dbsearch.aspx">Search Database</a></li>
+        <li><a href="../inventory.aspx">Inventory</a></li>
+        <li><a href="../About/About.aspx">About</a></li>
+        <li><a href="../About/contact.aspx">Contact Us</a></li>
+
+        <li><asp:LoginView ID="FoodLogin" runat="server" SkinID="Thanks">
+                <AnonymousTemplate><a href="../Account/login.aspx">Login</a></AnonymousTemplate>
+                <LoggedInTemplate>
+                    <asp:LoginName ID="LoginName1" runat="server" FormatString="Welcome {0}" CssClass="menu_login" />
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                    <li><a href="../Account/manageacct.aspx" style="padding: 9px 15px 9px 15px; font-size: 8px; ">[My Account]</a></li>                        
+                </LoggedInTemplate>
+            </asp:LoginView>
+        </li>
+        </ul>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="page_footer">
+
+        <p>I have no rights.</p>
+
+    </div>
+    </div>
+    </form>
+</body>
+</html>
